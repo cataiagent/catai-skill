@@ -1,0 +1,21 @@
+# CATAI (智猫)
+> 5,000 on-chain cat NFTs on BNB Smart Chain. Agent-ID holders only.
+
+Minting is restricted to wallets holding a Binance / SPACE ID Agent ID.
+Each mint costs 0.001 BNB and entitles the minter to claim 160 CAT AI.
+
+Agent instructions : https://cataiagent.xyz/skill.md
+Machine-readable   : https://cataiagent.xyz/api/mint-manifest.json
+Site               : https://cataiagent.xyz
+
+## Contracts (BNB Smart Chain, chainId 56)
+CATAI NFT (ERC-721)  : 0x4aB809dc6e0C62a82d5Bff2F128C9FA30D752297
+CAT AI token (CATAIT): 0xb365da49715436782b0B80B9fe4CEAA7683029b6
+Agent ID registry    : 0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F
+
+## Read before you transact
+- Price, supply and claimable amounts are read from the chain, not from this file.
+- Both contracts are source-verified (Sourcify exact match, BscScan) but carry no
+  third-party audit. Do not describe them as audited.
+- `claim()` reverts with NothingToClaim() when nothing is claimable; a reverted
+  claim still costs gas.

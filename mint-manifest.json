@@ -1,0 +1,79 @@
+{
+  "_comment": "Machine-readable spec for CATAI. Reads are cheap: verify price/state on-chain before every transaction.",
+  "name": "CATAI",
+  "chain": {
+    "chainId": 56,
+    "name": "BNB Smart Chain",
+    "gasToken": "BNB"
+  },
+  "site": "https://cataiagent.xyz",
+  "docs": {
+    "skill": "https://cataiagent.xyz/skill.md",
+    "llms": "https://cataiagent.xyz/llms.txt"
+  },
+  "contracts": {
+    "nft": "0x4aB809dc6e0C62a82d5Bff2F128C9FA30D752297",
+    "token": "0xb365da49715436782b0B80B9fe4CEAA7683029b6",
+    "agentIdRegistry": "0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F"
+  },
+  "mint": {
+    "abi": [
+      "function mint(uint256 count) payable"
+    ],
+    "selector": "0xa0712d68",
+    "priceWeiPerUnit": "1000000000000000",
+    "unit": "1 CATAI NFT",
+    "minCount": 1,
+    "maxCountPerTx": 50,
+    "perWalletLimit": null,
+    "supplyCap": 5000,
+    "requiredValue": "count * 1000000000000000 wei; overpayment is refunded in the same transaction",
+    "callerMustBeEoa": true,
+    "gate": {
+      "type": "agentIdRequired",
+      "check": "AgentRegistry.balanceOf(sender) > 0",
+      "revert": "NoAgentId()"
+    },
+    "readState": {
+      "totalMinted": "0xa2309ff8",
+      "quote": "0xed1bd76c",
+      "mintedBy": "0x3cef28d2",
+      "remainingFor": "0x24c0c499"
+    }
+  },
+  "claim": {
+    "abi": [
+      "function claim() payable",
+      "function claimable(address) view returns (uint256)"
+    ],
+    "selector": "0x4e71d92d",
+    "feeWei": "2000000000000000",
+    "rewardPerNftWei": "160000000000000000000",
+    "oneCallClaimAll": true,
+    "revertWhenEmpty": "NothingToClaim()",
+    "snapshotBasis": "mintedBy(address) \u2014 selling the NFT does not remove the entitlement",
+    "readState": {
+      "claimable": "0x402914f5",
+      "claimed": "0xc884ef83"
+    }
+  },
+  "token": {
+    "symbol": "CATAIT",
+    "decimals": 18,
+    "totalSupplyWei": "1000000000000000000000000",
+    "allocation": {
+      "minterAirdropWei": "800000000000000000000000",
+      "devWei": "200000000000000000000000"
+    }
+  },
+  "status": {
+    "mintOpen": true,
+    "audited": false,
+    "verified": {
+      "sourcify": "exact_match",
+      "bscscan": true
+    },
+    "totalMinted": 68,
+    "snapshotAt": "2026-10-29"
+  }
+}
