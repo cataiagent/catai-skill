@@ -7,7 +7,7 @@ Agent-ID holders only. Each mint costs 0.001 BNB and entitles the minter to clai
 ## Install
 
 ```sh
-git clone https://github.com/<you>/catai-skill
+git clone https://github.com/cataiagent/catai-skill
 # then copy skills/catai-mint-claim into your agent's skills directory
 ```
 
@@ -24,7 +24,8 @@ The skill drives the Binance Agentic Wallet CLI (`baw`, developer mode) on BSC.
 
 | Path | What |
 |---|---|
-| `skills/catai-mint-claim/SKILL.md` | the skill itself (preflight, contracts, read-only checks) |
+| `SKILL.md` | the skill itself — root layout, what agent skill marketplaces index |
+| `skills/catai-mint-claim/SKILL.md` | same skill in folder layout (Claude Code / Codex skills dir) |
 
 ## Contracts (BNB Smart Chain, chainId 56)
 
